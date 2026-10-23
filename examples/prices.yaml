@@ -1,0 +1,98 @@
+# Example price table. USD per 1,000,000 tokens.
+#
+# These are the prices the author read on each provider's page on the `checked_at` date, kept
+# here to show every field the library understands. Prices change: re-check them on `source`
+# before trusting any number, and run `llm-cost-kit prices examples/prices.yaml` to list what
+# is unchecked or stale.
+#
+# Fields:
+#   input, output     price per 1M tokens
+#   cache_read        price of cached prompt tokens; null = no cache discount; "?" = not checked
+#   high_tier         higher prices when the PROMPT is longer than `above` tokens
+#   batch             has a batch mode at half price (default true)
+#   off_peak          cheaper time window: peak hours in UTC and the factor outside them
+#   per_request       fixed fee per call (search APIs)
+#   per_image         price per generated image, for models billed per image
+#   retired           kept to price old rows; not listed as unchecked
+
+models:
+  gemini-2.5-flash:
+    input: 0.30
+    output: 2.50
+    cache_read: 0.03
+    source: https://ai.google.dev/gemini-api/docs/pricing
+    checked_at: 2026-10-06
+    note: no high tier (asked literally on the page)
+
+  gemini-2.5-pro:
+    input: 1.25
+    output: 10.00
+    cache_read: 0.125
+    high_tier: {above: 200000, input: 2.50, output: 15.00, cache_read: 0.25}
+    source: https://ai.google.dev/gemini-api/docs/pricing
+    checked_at: 2026-10-06
+    note: above 200k input and cache double, output goes to 1.5x
+
+  gemini-2.5-flash-lite:
+    input: 0.10
+    output: 0.40
+    cache_read: 0.01
+    source: https://ai.google.dev/gemini-api/docs/pricing
+    checked_at: 2026-10-06
+
+  deepseek-flash:
+    input: 0.30
+    output: 1.20
+    cache_read: 0.006
+    batch: false
+    off_peak: {peak_utc: [[1, 4], [6, 10]], factor: 0.5, weekends_off_peak: true}
+    source: https://api-docs.deepseek.com/quick_start/pricing
+    checked_at: 2026-09-22
+    note: no batch; half price outside 01-04 and 06-10 UTC on weekdays
+
+  claude-haiku-4.5:
+    input: 1.00
+    output: 5.00
+    cache_read: 0.10
+    source: https://www.anthropic.com/pricing
+    checked_at: 2026-10-06
+
+  qwen3.7-flash:
+    input: 0.030
+    output: 0.130
+    high_tier: {above: 32000, input: 0.100, output: 0.400}
+    batch: false
+    source: https://www.alibabacloud.com/help/en/model-studio/model-pricing
+    checked_at: 2026-10-13
+    note: the tier starts at 32k, not 200k
+
+  sonar:
+    input: 1.00
+    output: 1.00
+    per_request: 0.008
+    batch: false
+    source: https://docs.perplexity.ai/docs/getting-started/pricing
+    checked_at: 2026-10-13
+    note: search fee per call (medium context); it costs more than the tokens of a short prompt
+
+  mistral-small-2603:
+    input: 0.15
+    output: 0.60
+    cache_read: "?"
+    source: https://mistral.ai/pricing
+    checked_at: 2026-10-13
+    note: page says cache saves "up to 90%", which is not a price
+
+  qwen3:8b:
+    input: 0
+    output: 0
+    source: local model (Ollama), no API price
+    checked_at: 2026-10-13
+    note: listed so local runs get a row; their real cost is machine time
+
+  gemini-2.5-flash-image:
+    input: 0.50
+    output: 60.00
+    source: https://ai.google.dev/gemini-api/docs/pricing
+    retired: true
+    note: shut down by the provider; kept to price old rows

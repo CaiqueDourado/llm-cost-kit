@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-cost-kit"
+version = "0.1.0"
+description = "What each LLM call really cost: prices with source and date, thinking tokens, price tiers, batch and off-peak, a ledger that never breaks your pipeline, prompt budgets and a CI guard."
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Caique Dourado"}]
+requires-python = ">=3.10"
+dependencies = []
+keywords = ["llm", "cost", "pricing", "tokens", "gemini", "openai", "anthropic", "finops", "batch"]
+
+[project.optional-dependencies]
+yaml = ["pyyaml>=6"]
+dev = ["pytest>=7", "pyyaml>=6"]
+
+[project.scripts]
+llm-cost-kit = "llm_cost_kit.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/CaiqueDourado/llm-cost-kit"
+
+[tool.setuptools.packages.find]
+where = ["src"]
