@@ -104,7 +104,7 @@ No required dependencies; `[yaml]` adds PyYAML to read YAML price files (JSON wo
 
 ## Related
 
-- llm-batch-kit (coming next): batch APIs at half price without mismatched answers, recorded with this ledger.
+- [llm-batch-kit](https://github.com/CaiqueDourado/llm-batch-kit): batch APIs at half price without mismatched answers or paying twice; `ledger_hook` records each answer here at the batch price.
 - [scrapladder](https://github.com/CaiqueDourado/scrapladder) and [transcriptladder](https://github.com/CaiqueDourado/transcriptladder): the fetch and transcript layers of the same crawler.
 
 ## License

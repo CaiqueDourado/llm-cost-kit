@@ -104,7 +104,7 @@ Sem dependências obrigatórias; `[yaml]` adiciona o PyYAML para ler tabelas em 
 
 ## Relacionados
 
-- llm-batch-kit (próxima): APIs de lote pela metade do preço, sem respostas trocadas, registradas com este ledger.
+- [llm-batch-kit](https://github.com/CaiqueDourado/llm-batch-kit): APIs de lote pela metade do preço, sem respostas trocadas nem pagar duas vezes; o `ledger_hook` registra cada resposta aqui pelo preço de lote.
 - [scrapladder](https://github.com/CaiqueDourado/scrapladder) e [transcriptladder](https://github.com/CaiqueDourado/transcriptladder): as camadas de coleta e de transcrição do mesmo crawler.
 
 ## Licença
