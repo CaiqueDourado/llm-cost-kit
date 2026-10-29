@@ -29,6 +29,15 @@ $ llm-cost-kit prices prices.yaml        # o que não foi conferido, está velho
 $ llm-cost-kit check src/ --recorder record   # arquivos que chamam LLM e não registram nada
 ```
 
+## Como fica um registro de custo
+
+A linha que `ledger.record()` grava para a chamada ao Gemini de [`examples/quickstart.py`](examples/quickstart.py), ao lado
+do preço usado. Os 6.099 tokens de raciocínio são cobrados como saída: (180.000 × 0,30 + 6.343 × 2,50) / 1M = US$ 0,0699.
+
+![Um registro de custo em JSON](docs/img/cost-json.png)
+
+JSON completo: [`docs/example-cost.json`](docs/example-cost.json), gerado por [`scripts/make_json.py`](scripts/make_json.py).
+
 ## De onde vem
 
 O site de análises de produtos do autor gera fichas técnicas, comparativos, rankings, artigos e roteiros de vídeo com Gemini, OpenAI e outros modelos. Um estudo para cortar essa conta descobriu que a própria conta estava sendo medida errado, e cada erro mudava decisões:

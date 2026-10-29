@@ -1,0 +1,44 @@
+{
+  "usage": {
+    "input_tokens": 180000,
+    "output_tokens": 244,
+    "cached_input_tokens": 0,
+    "thinking_tokens": 6099,
+    "provider": "google"
+  },
+  "row": {
+    "at": "2026-10-06T14:30:00+00:00",
+    "flow": "spec_sheet",
+    "model": "gemini-2.5-flash",
+    "provider": "google",
+    "input_tokens": 180000,
+    "cached_input_tokens": 0,
+    "output_tokens": 244,
+    "thinking_tokens": 6099,
+    "images": 0,
+    "batch": false,
+    "off_peak": false,
+    "tier": null,
+    "cost_usd": 0.0698575,
+    "latency_ms": null,
+    "price_checked_at": "2026-10-06",
+    "meta": {
+      "product_id": 1
+    }
+  },
+  "price": {
+    "model": "gemini-2.5-flash",
+    "input": 0.3,
+    "output": 2.5,
+    "source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "checked_at": "2026-10-06",
+    "cache_read": 0.03,
+    "per_image": null,
+    "per_request": 0.0,
+    "batch": true,
+    "high_tier": null,
+    "off_peak": null,
+    "retired": false,
+    "note": "no high tier (asked literally on the page)"
+  }
+}

@@ -29,6 +29,15 @@ $ llm-cost-kit prices prices.yaml        # what is unchecked, stale or looks lik
 $ llm-cost-kit check src/ --recorder record   # files that call an LLM and record nothing
 ```
 
+## What a cost record looks like
+
+The row `ledger.record()` writes for the Gemini call in [`examples/quickstart.py`](examples/quickstart.py), next to
+the price entry it used. The 6,099 thinking tokens are billed as output: (180,000 × 0.30 + 6,343 × 2.50) / 1M = US$ 0.0699.
+
+![One cost record as JSON](docs/img/cost-json.png)
+
+Full JSON: [`docs/example-cost.json`](docs/example-cost.json), written by [`scripts/make_json.py`](scripts/make_json.py).
+
 ## Where it comes from
 
 The author's product-review site generates spec sheets, comparisons, rankings, articles and video scripts with Gemini, OpenAI and other models. A study to cut that bill found that the bill itself was being measured wrong, in ways that each changed decisions:
