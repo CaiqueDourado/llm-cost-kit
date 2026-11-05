@@ -8,7 +8,7 @@
 
 ![llm-cost-kit](docs/img/cover.png)
 
-Know what each LLM call really cost, with prices you can trace back to the provider's page. No dependencies.
+Know what each LLM call really cost, with every price pointing to the provider's page. No dependencies.
 
 ```python
 from llm_cost_kit import Ledger, PriceTable, SQLiteSink, target, timer
@@ -40,7 +40,7 @@ Full JSON: [`docs/example-cost.json`](docs/example-cost.json), written by [`scri
 
 ## Where it comes from
 
-The author's product-review site generates spec sheets, comparisons, rankings, articles and video scripts with Gemini, OpenAI and other models. A study to cut that bill found that the bill itself was being measured wrong, in ways that each changed decisions:
+My product review site writes spec sheets, comparisons, rankings, articles and video scripts with Gemini, OpenAI and other models. I studied how to cut that bill. First I found that the bill itself was being measured wrong, and each mistake changed decisions:
 
 | What went wrong | Measured |
 |---|---|
@@ -52,7 +52,7 @@ The author's product-review site generates spec sheets, comparisons, rankings, a
 | tiktoken used to stay under the 200k price tier | Google's own count was 3.5% to 23.4% higher; 8 real prompts crossed the tier unnoticed |
 | `429` retried three times | it was `insufficient_quota`: the account had no credit, and the retries only failed slower |
 
-With the bill measured correctly, the study took a new product (content and images) from **US$ 1.00 to US$ 0.14 (−85.8%)**. This library is that measuring layer, rewritten without the project's database.
+With the bill measured right, the study took a new product (content and images) from **US$ 1.00 to US$ 0.14 (−85.8%)**. This library is that measuring layer, rewritten without the project's database.
 
 ## How it works
 
@@ -95,7 +95,7 @@ flowchart TD
 | `budget` | `allocate` (blocks by weight, in rounds) and `cut_at_boundary` (cut between items, report which items fell out). |
 | `guard` | `unmetered(path)`: files that call an LLM and never call your recorder. Run it in CI. |
 
-The example table [`examples/prices.yaml`](examples/prices.yaml) shows every field with prices the author read on each provider's page, with their dates. **Check them again before trusting them**: prices change, and the table says when each one was last read.
+The example table [`examples/prices.yaml`](examples/prices.yaml) shows every field with prices I read on each provider's page, with their dates. **Check them again before trusting them**: prices change, and the table says when each one was last read.
 
 ## Install
 

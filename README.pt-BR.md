@@ -8,7 +8,7 @@
 
 ![llm-cost-kit](docs/img/cover.pt-BR.png)
 
-Saiba quanto cada chamada de LLM custou de verdade, com preços que você consegue rastrear até a página do provedor. Sem dependências.
+Saiba quanto cada chamada de LLM custou de verdade, com cada preço apontando para a página do fornecedor. Nenhuma dependência.
 
 ```python
 from llm_cost_kit import Ledger, PriceTable, SQLiteSink, target, timer
@@ -40,7 +40,7 @@ JSON completo: [`docs/example-cost.json`](docs/example-cost.json), gerado por [`
 
 ## De onde vem
 
-O site de análises de produtos do autor gera fichas técnicas, comparativos, rankings, artigos e roteiros de vídeo com Gemini, OpenAI e outros modelos. Um estudo para cortar essa conta descobriu que a própria conta estava sendo medida errado, e cada erro mudava decisões:
+O meu site de análise de produtos escreve fichas técnicas, comparações, rankings, artigos e roteiros de vídeo com Gemini, OpenAI e outros modelos. Eu estudei como cortar essa conta. Primeiro descobri que a própria conta estava sendo medida errado, e cada erro mudava decisões:
 
 | O que dava errado | Medido |
 |---|---|
@@ -95,7 +95,7 @@ flowchart TD
 | `budget` | `allocate` (blocos por peso, em rodadas) e `cut_at_boundary` (corta entre itens e diz quais ficaram de fora). |
 | `guard` | `unmetered(caminho)`: arquivos que chamam LLM e nunca chamam o seu registrador. Rode no CI. |
 
-A tabela de exemplo [`examples/prices.yaml`](examples/prices.yaml) mostra todos os campos com os preços que o autor leu na página de cada provedor, com as datas. **Confira de novo antes de confiar**: preços mudam, e a tabela diz quando cada um foi lido pela última vez.
+A tabela de exemplo [`examples/prices.yaml`](examples/prices.yaml) mostra todos os campos com os preços que eu li na página de cada provedor, com as datas. **Confira de novo antes de confiar**: preços mudam, e a tabela diz quando cada um foi lido pela última vez.
 
 ## Instalação
 
